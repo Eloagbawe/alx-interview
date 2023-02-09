@@ -9,7 +9,7 @@ def minOperations(n):
     if (isinstance(n, int) and (n > 0)):
         operations = 0
         string = 'H'
-        latest_copy = ''
+        latest_copy = 'H'
 
         while len(string) < n:
             if (n % len(string) == 0):
