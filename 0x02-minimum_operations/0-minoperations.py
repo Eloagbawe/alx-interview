@@ -12,10 +12,12 @@ def minOperations(n):
         latest_copy = ''
 
         while len(string) < n:
-            if ((len(string) == 1) and (len(latest_copy) == 0)):
+            if (len(latest_copy) == 0):
                 latest_copy = string
+                operations += 1
+            if ((len(string) == 1)):
                 string += latest_copy
-                operations += 2
+                operations += 1
                 continue
             target = n - len(string)
             if target < len(latest_copy):
