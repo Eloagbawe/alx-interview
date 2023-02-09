@@ -17,7 +17,8 @@ def minOperations(n):
                 string += latest_copy
                 operations += 2
                 continue
-            if (n % len(string) == 0):
+            target = n - len(string)
+            if (target % len(string) == 0):
                 latest_copy = string
                 string += latest_copy
                 operations += 2
