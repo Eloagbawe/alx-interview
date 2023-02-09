@@ -6,29 +6,25 @@ def minOperations(n):
     """This calculates the fewest number of
     operations needed to result in exactly n H
     characters in a file"""
-    if (isinstance(n, int) and (n > 0)):
-        operations = 0
-        string = 'H'
-        latest_copy = ''
+    operations = 0
+    string = 'H'
+    latest_copy = ''
 
-        while len(string) < n:
-            if (len(latest_copy) == 0):
-                latest_copy = string
-                operations += 1
-            if (len(string) == 1):
-                string += latest_copy
-                operations += 1
-                continue
-            target = n - len(string)
-            if (target % len(string) == 0):
-                latest_copy = string
-                string += latest_copy
-                operations += 2
-            else:
-                string += latest_copy
-                operations += 1
-        if (len(string) == n):
-            return operations
+    while len(string) < n:
+        if ((len(string) == 1) and (len(latest_copy) == 0)):
+            latest_copy = string
+            string += latest_copy
+            operations += 2
+            continue
+        target = n - len(string)
+        if (target % len(string) == 0):
+            latest_copy = string
+            string += latest_copy
+            operations += 2
         else:
-            return 0
-    return 0
+            string += latest_copy
+            operations += 1
+    if (len(string) == n):
+        return operations
+    else:
+        return 0
