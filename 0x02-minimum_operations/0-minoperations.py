@@ -8,28 +8,26 @@ def minOperations(n):
     characters in a file"""
     if (isinstance(n, int) and (n > 0)):
         operations = 0
-        string = 1
+        paste = 1
         latest_copy = 0
 
-        while string < n:
+        while paste < n:
             if latest_copy == 0:
-                latest_copy = string
-                operations += 1
-            if string == 1:
-                string += latest_copy
-                operations += 1
+                latest_copy = paste
+                paste += latest_copy
+                operations += 2
                 continue
-            target = n - string
+            target = n - paste
             if target < latest_copy:
                 return 0
-            if target % string != 0:
-                string += latest_copy
-                operations += 1
-            else:
-                latest_copy = string
-                string += latest_copy
+            if target % paste == 0:
+                latest_copy = paste
+                paste += latest_copy
                 operations += 2
-        if string == n:
+            else:
+                paste += latest_copy
+                operations += 1
+        if paste == n:
             return operations
         else:
             return 0
