@@ -6,7 +6,7 @@ def minOperations(n):
     """This calculates the fewest number of
     operations needed to result in exactly n H
     characters in a file"""
-    if (n > 0):
+    if (isinstance(n, int) and (n > 0)):
         operations = 0
         string = 'H'
         latest_copy = ''
