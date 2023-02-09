@@ -22,13 +22,13 @@ def minOperations(n):
             target = n - len(string)
             if target < len(latest_copy):
                 return 0
-            if (target % len(string) == 0):
+            if (target % len(string) != 0):
+                string += latest_copy
+                operations += 1
+            else:
                 latest_copy = string
                 string += latest_copy
                 operations += 2
-            else:
-                string += latest_copy
-                operations += 1
         if (len(string) == n):
             return operations
         else:
