@@ -12,7 +12,9 @@ def validUTF8(data):
     # Iterate through each byte in the data
     for byte in data:
         # Check if the byte is a continuation byte
-        if num_continuation_bytes > 0 and (byte >> 6) == 0b10:
+        if num_continuation_bytes > 0:
+            if (byte >> 6) != 0b10:
+                return False
             # If it is a continuation byte, decrement the number
             # of continuation bytes
             num_continuation_bytes -= 1
