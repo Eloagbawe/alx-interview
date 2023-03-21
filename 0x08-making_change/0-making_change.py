@@ -26,4 +26,4 @@ def makeChange(coins, total):
             return change
         else:
             pass
-    return - 1
+    return -1
